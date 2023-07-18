@@ -3,14 +3,19 @@ module Graph
         Vertex,
         Weight,
         Graph, 
-        testData
+        MapGraph,
+        testData,
+        testData2,
+        infinity
     ) where
 
 import Data.Array
+import Data.Map
 
 type Vertex = Int
 type Weight = Int
 type Graph = Array Vertex [(Vertex, Weight)] -- Array [IndexType] [ValueType]
+type MapGraph = Map Vertex [(Vertex, Weight)]
 
 testData :: Graph
 testData = array(0, 6)  [   -- array range [elements]
@@ -50,3 +55,9 @@ testData = array(0, 6)  [   -- array range [elements]
     ])
      
     ]
+
+testData2 :: MapGraph
+testData2 = fromList $ Data.Array.assocs testData
+
+infinity :: Int
+infinity = maxBound

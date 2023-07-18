@@ -19,12 +19,12 @@ bellmanFord graph source = shortestPaths
         relaxEdges dists = foldl relax dists vertices
 
         relax :: Array Vertex (Maybe Weight) -> Vertex -> Array Vertex (Maybe Weight)
-        relax dists u = foldl update dists (graph ! u) -- u頂点のEdgeを抜き出す  -- foldl func seed container
+        relax localDists u = foldl update localDists (graph ! u) -- u頂点のEdgeを抜き出す  -- foldl func seed container
             where 
-                update dists (v, weight) = case (dists ! u, dists ! v) of 
-                    (Just du, Nothing) -> dists // [(v, Just (du + weight))]    -- array // [...] arrayの該当部分を更新
-                    (Just du, Just dv) -> dists // [(v, Just (min dv (du + weight)))]
-                    _ -> dists
+                update currentDists (v, weight) = case (currentDists ! u, currentDists ! v) of 
+                    (Just du, Nothing) -> currentDists // [(v, Just (du + weight))]    -- array // [...] arrayの該当部分を更新
+                    (Just du, Just dv) -> currentDists // [(v, Just (min dv (du + weight)))]
+                    _ -> currentDists
 
         -- iterate func seed 無限ループする。A(n+1) = func(A(n)): A(0) = seed となる漸化式に等しい
 --         ghci> take 5 $ iterate (map (\x -> x+1)) seed
@@ -32,5 +32,5 @@ bellmanFord graph source = shortestPaths
         shortestPaths = iterate relaxEdges distances !! (numVertices + 1) -- Array !! index
 
         -- snd = second, (isJust . snd) = 関数合成
-        detectNegativeCycle :: Array Vertex (Maybe Weight) -> Bool
-        detectNegativeCycle dists = any (isJust . snd) $ zip vertices (relaxEdges dists)
+        -- detectNegativeCycle :: Array Vertex (Maybe Weight) -> Bool
+        -- detectNegativeCycle dists = any (isJust . snd) $ zip vertices (relaxEdges dists)
