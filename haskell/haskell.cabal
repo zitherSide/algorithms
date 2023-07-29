@@ -27,6 +27,7 @@ library
   exposed-modules:
       BellmanFord
       Dijkstra
+      FloydWarshall
       Graph
   other-modules:
       Paths_haskell

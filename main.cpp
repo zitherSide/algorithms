@@ -3,6 +3,7 @@
 #include <algorithm>
 #include "bellman_ford.hpp"
 #include "dijkstra.hpp"
+#include "floyd_warshall.hpp"
 
 using namespace std;
 using namespace graph;
@@ -14,8 +15,13 @@ void solve_bellman_ford() {
 	copy(res.cbegin(), res.cend(), ostream_iterator<int>(cout, ", "));
 }
 
-int main() {
+void solve_dijkstra() {
 	Dijkstra solver(TestData);
-	solver.solve(0);
+	const auto res = solver.solve2(0);
+}
+
+int main() {
+	FloydWarshall solver(TestData);
+	solver.solve();
 	return 0;
 }

@@ -131,12 +131,14 @@
   <ItemGroup>
     <ClCompile Include="bellman_ford.cpp" />
     <ClCompile Include="dijkstra.cpp" />
+    <ClCompile Include="floyd_warshall.cpp" />
     <ClCompile Include="graph.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bellman_ford.hpp" />
     <ClInclude Include="dijkstra.hpp" />
+    <ClInclude Include="floyd_warshall.hpp" />
     <ClInclude Include="graph.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
