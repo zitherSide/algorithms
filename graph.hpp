@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <unordered_map>
+#include <limits>
 
 namespace graph {
 
@@ -14,6 +15,8 @@ struct Edge {
 
 using Edges = std::vector<Edge>;
 using Graph = std::unordered_map<Vertex, Edges>;
+
+constexpr Weight Inf = std::numeric_limits<Weight>::max() / 2;
 
 extern const Graph TestData;
 

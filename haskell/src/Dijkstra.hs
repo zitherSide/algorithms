@@ -4,8 +4,8 @@ module Dijkstra
     ) where
 
 import Graph
-import Data.Map (Map, fromList, singleton, size, toList, lookup, insert, filter, filterWithKey)
-import Data.Set (Set, size, singleton, insert, empty, member)
+import Data.Map (Map, singleton, size, toList, lookup, insert, filterWithKey)
+import Data.Set (Set, size, insert, empty, member)
 import Data.Function (on)
 import Data.List (minimumBy)
 import Data.Maybe (fromJust)
