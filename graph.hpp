@@ -20,4 +20,6 @@ constexpr Weight Inf = std::numeric_limits<Weight>::max() / 2;
 
 extern const Graph TestData;
 
+std::vector<Vertex> RestorePath(Vertex start, Vertex end, const std::unordered_map<Vertex, Vertex>& path);
+
 }

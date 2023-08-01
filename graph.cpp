@@ -47,3 +47,17 @@ const Graph graph::TestData{
 			}
 		}
 };
+
+vector<Vertex> graph::RestorePath(Vertex start, Vertex end, const unordered_map<Vertex, Vertex>& path) {
+	vector<Vertex> res;
+	Vertex v = end;
+	while (v != start) {
+		res.emplace_back(v);
+		v = path.at(v);
+	}
+	res.emplace_back(v);
+
+	reverse(res.begin(), res.end());
+	return res;
+}
+
