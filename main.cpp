@@ -5,6 +5,7 @@
 #include "bellman_ford.hpp"
 #include "dijkstra.hpp"
 #include "floyd_warshall.hpp"
+#include "prim.hpp"
 
 using namespace std;
 using namespace graph;
@@ -26,7 +27,7 @@ void solve_floyd_warshall() {
 	solver.solve();
 }
 
-int main() {
+void solve_and_find_path() {
 	unordered_map<Vertex, Vertex> path;
 	Dijkstra solver(TestData);
 	const auto res = solver.solve2(0, path);
@@ -37,6 +38,11 @@ int main() {
 	BellmanFord solverB(7, TestData);
 	solverB.calcShortestPathCosts(0, path);
 	copy(p.cbegin(), p.cend(), ostream_iterator<Vertex>(cout, ", "));
+}
 
+int main() {
+	Prim p(TestData);
+	const auto res = p.solve();
+	cout << res << endl;
 	return 0;
 }

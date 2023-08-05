@@ -29,6 +29,7 @@ library
       Dijkstra
       FloydWarshall
       Graph
+      Prim
   other-modules:
       Paths_haskell
   hs-source-dirs:
