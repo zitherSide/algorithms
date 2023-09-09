@@ -13,6 +13,15 @@ struct Edge {
 	Weight cost;
 };
 
+struct BiEdge {
+	Vertex from = 0;
+	Vertex to = 0;
+	Weight cost = 0;
+
+	BiEdge(){}
+	BiEdge(Vertex f, Edge e) :from(f), to(e.to), cost(e.cost) {}
+};
+
 using Edges = std::vector<Edge>;
 using Graph = std::unordered_map<Vertex, Edges>;
 

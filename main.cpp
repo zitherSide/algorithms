@@ -6,6 +6,8 @@
 #include "dijkstra.hpp"
 #include "floyd_warshall.hpp"
 #include "prim.hpp"
+#include "union_find.hpp"
+#include "kruskal.hpp"
 
 using namespace std;
 using namespace graph;
@@ -40,9 +42,22 @@ void solve_and_find_path() {
 	copy(p.cbegin(), p.cend(), ostream_iterator<Vertex>(cout, ", "));
 }
 
-int main() {
+void solve_prim() {
 	Prim p(TestData);
 	const auto res = p.solve();
 	cout << res << endl;
+}
+
+void union_find_test() {
+	UnionFindTree<int, 10> uf;
+	cout << boolalpha << uf.IsSame(1, 0) << endl;
+	uf.Unite(2, 6);
+	uf.Unite(6, 3);
+	cout << boolalpha << uf.IsSame(2, 3) << endl;
+}
+
+int main() {
+	Kruskal solver(TestData);
+	const auto res = solver.Solve();
 	return 0;
 }

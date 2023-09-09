@@ -133,15 +133,19 @@
     <ClCompile Include="dijkstra.cpp" />
     <ClCompile Include="floyd_warshall.cpp" />
     <ClCompile Include="graph.cpp" />
+    <ClCompile Include="kruskal.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="prim.cpp" />
+    <ClCompile Include="union_find.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bellman_ford.hpp" />
     <ClInclude Include="dijkstra.hpp" />
     <ClInclude Include="floyd_warshall.hpp" />
     <ClInclude Include="graph.hpp" />
+    <ClInclude Include="kruskal.hpp" />
     <ClInclude Include="prim.hpp" />
+    <ClInclude Include="union_find.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
