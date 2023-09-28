@@ -8,6 +8,7 @@
 #include "prim.hpp"
 #include "union_find.hpp"
 #include "kruskal.hpp"
+#include "road_blocks.hpp"
 
 using namespace std;
 using namespace graph;
@@ -56,8 +57,12 @@ void union_find_test() {
 	cout << boolalpha << uf.IsSame(2, 3) << endl;
 }
 
-int main() {
+void kruskal() {
 	Kruskal solver(TestData);
 	const auto res = solver.Solve();
+}
+int main() {
+	RoadBlocks solver(TestData);
+	solver.calcSecondShortest(0, 6);
 	return 0;
 }

@@ -31,6 +31,7 @@ library
       Graph
       Kruskal
       Prim
+      RoadBlock
   other-modules:
       Paths_haskell
   hs-source-dirs:
