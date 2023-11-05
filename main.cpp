@@ -1,6 +1,7 @@
 #include <iterator>
 #include <iostream>
 #include <algorithm>
+#include <numeric>
 #include "graph.hpp"
 #include "bellman_ford.hpp"
 #include "dijkstra.hpp"
@@ -9,6 +10,7 @@
 #include "union_find.hpp"
 #include "kruskal.hpp"
 #include "road_blocks.hpp"
+#include "layout.hpp"
 
 using namespace std;
 using namespace graph;
@@ -57,12 +59,36 @@ void union_find_test() {
 	cout << boolalpha << uf.IsSame(2, 3) << endl;
 }
 
-void kruskal() {
+void kruskal_test() {
 	Kruskal solver(TestData);
 	const auto res = solver.Solve();
 }
-int main() {
+
+void road_block() {
 	RoadBlocks solver(TestData);
 	solver.calcSecondShortest(0, 6);
+}
+
+void conscription() {
+	const NonDirectedGraph Intimacy{ {4, 3, 6831}, {1, 3, 4583}, {0, 0, 6592}, {0, 1, 3063}, {3, 3, 4975}, {1, 3, 2049}, {4, 2, 2104}, {2, 2, 781} };
+	constexpr size_t NumFemale = 5;
+	constexpr size_t NumMale = 5;
+	constexpr int Cost = 10000;
+	NonDirectedGraph intimacyGraph(Intimacy.size());
+	transform(Intimacy.cbegin(), Intimacy.cend(), intimacyGraph.begin(), ([&](auto& e) { return BiEdge(e.from, e.to + NumMale, -e.cost); }));
+
+	const auto mst = kruskal(intimacyGraph);
+	const auto reduction = accumulate(mst.cbegin(), mst.cend(), 0, [](const auto sum, const auto& elem) -> int {
+		return sum + elem.cost;
+		});
+	const auto cost = (NumFemale + NumMale) * Cost + reduction;
+}
+
+int main() {
+	const vector<LayoutConstraint> Constraints{
+		{1, 3, 10}, {2, 4, 20}, {2, 3, -3}
+	};
+	const auto MaxV = getMaxVertex(Constraints);
+	const auto Res = calcLongestLayout(MaxV+1, Constraints);
 	return 0;
 }

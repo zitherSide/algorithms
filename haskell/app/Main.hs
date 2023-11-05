@@ -6,17 +6,23 @@ import Graph
 -- import FloydWarshall
 -- import Prim
 -- import Kruskal
-import RoadBlock
+-- import RoadBlock
+-- import Conscription
+import Layout
 
 main :: IO ()
 main = do 
+    print "The Result is: "
     -- print $ calcShortestPathCosts 1 testData
     -- print testData
     -- print $ dijkstra testData2 0
     -- printCost $ floydWarshall 7 testData3
     -- print $ prim testData4
     -- print $ kruskal testData4
-    print "The Result is: "
-    print $ calcSecondShortest 0 6 testData
+    -- print $ calcSecondShortest 0 6 testData
+    -- let orgCost= calcOrgCost intimacies
+    --     reduction = calcGraphCost $ calcMaxIntimacies intimacies
+    -- print $ orgCost + reduction
+    print (show $ calcLongestLayout 4 [(0, 2, 10), (1, 3, 20)] [(1, 2, 3)] )
     return ()
 

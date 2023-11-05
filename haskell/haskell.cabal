@@ -26,12 +26,16 @@ source-repository head
 library
   exposed-modules:
       BellmanFord
+      Conscription
       Dijkstra
       FloydWarshall
       Graph
       Kruskal
+      Layout
+      ListConverter
       Prim
       RoadBlock
+      UnionFind
   other-modules:
       Paths_haskell
   hs-source-dirs:

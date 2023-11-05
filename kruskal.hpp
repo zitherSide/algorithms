@@ -5,5 +5,7 @@ class Kruskal {
 	graph::Graph g_;
 public:
 	Kruskal(const graph::Graph& g) :g_(g) {}
-	std::vector<graph::BiEdge> Solve();
+	graph::NonDirectedGraph Solve();
 };
+
+graph::NonDirectedGraph kruskal(const graph::NonDirectedGraph& graph);

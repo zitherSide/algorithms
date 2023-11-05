@@ -20,10 +20,12 @@ struct BiEdge {
 
 	BiEdge(){}
 	BiEdge(Vertex f, Edge e) :from(f), to(e.to), cost(e.cost) {}
+	BiEdge(Vertex from, Vertex to, Weight cost) :from(from), to(to), cost(cost) {}
 };
 
 using Edges = std::vector<Edge>;
 using Graph = std::unordered_map<Vertex, Edges>;
+using NonDirectedGraph = std::vector<BiEdge>;
 
 constexpr Weight Inf = std::numeric_limits<Weight>::max() / 2;
 
