@@ -1,6 +1,6 @@
 module Main (main) where
 
-import Graph 
+-- import Graph 
 -- import BellmanFord
 -- import Dijkstra
 -- import FloydWarshall
@@ -8,7 +8,8 @@ import Graph
 -- import Kruskal
 -- import RoadBlock
 -- import Conscription
-import Layout
+-- import Layout
+import CrazyRow
 
 main :: IO ()
 main = do 
@@ -23,6 +24,7 @@ main = do
     -- let orgCost= calcOrgCost intimacies
     --     reduction = calcGraphCost $ calcMaxIntimacies intimacies
     -- print $ orgCost + reduction
-    print (show $ calcLongestLayout 4 [(0, 2, 10), (1, 3, 20)] [(1, 2, 3)] )
+    -- print (show $ calcLongestLayout 4 [(0, 2, 10), (1, 3, 20)] [(1, 2, 3)] )
+    print $ calcMinimumSteps CrazyRow.testData
     return ()
 
