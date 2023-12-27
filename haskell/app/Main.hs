@@ -9,7 +9,8 @@ module Main (main) where
 -- import RoadBlock
 -- import Conscription
 -- import Layout
-import CrazyRow
+-- import CrazyRow
+import BribePrisoners
 
 main :: IO ()
 main = do 
@@ -25,6 +26,7 @@ main = do
     --     reduction = calcGraphCost $ calcMaxIntimacies intimacies
     -- print $ orgCost + reduction
     -- print (show $ calcLongestLayout 4 [(0, 2, 10), (1, 3, 20)] [(1, 2, 3)] )
-    print $ calcMinimumSteps CrazyRow.testData
+    -- print $ calcMinimumSteps CrazyRow.testData
+    print $ calcMinBribe 20 [3, 6, 14]
     return ()
 

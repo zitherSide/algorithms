@@ -130,6 +130,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="bellman_ford.cpp" />
+    <ClCompile Include="bribe_the_prisoners.cpp" />
     <ClCompile Include="dijkstra.cpp" />
     <ClCompile Include="floyd_warshall.cpp" />
     <ClCompile Include="graph.cpp" />
@@ -142,6 +143,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bellman_ford.hpp" />
+    <ClInclude Include="bribe_the_prisoners.hpp" />
     <ClInclude Include="dijkstra.hpp" />
     <ClInclude Include="floyd_warshall.hpp" />
     <ClInclude Include="graph.hpp" />

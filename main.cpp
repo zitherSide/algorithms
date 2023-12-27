@@ -12,6 +12,7 @@
 #include "kruskal.hpp"
 #include "road_blocks.hpp"
 #include "layout.hpp"
+#include "bribe_the_prisoners.hpp"
 
 using namespace std;
 using namespace graph;
@@ -121,7 +122,7 @@ void MinimumProduct() {
 	cout << res << endl;;
 }
 
-int main() {
+void SolveCrazyRows() {
 	//1 <= N <= 40
 	using Row = vector<int>;
 	using Matrix = vector<Row>;
@@ -142,7 +143,7 @@ int main() {
 			index = (row.at(i) == 1) ? i : index;
 		}
 		return index;
-	});
+		});
 	//copy(position.begin(), position.end(), ostream_iterator<int>(cout, ", "));
 
 	size_t res = 0;
@@ -161,6 +162,10 @@ int main() {
 		}
 	}
 	cout << res << endl;
+}
+
+int main() {
+	cout << "Cost: " << CalcMinCost(20, { 3, 6, 14 }) << endl;
 
 	return 0;
 }
