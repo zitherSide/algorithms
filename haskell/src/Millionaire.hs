@@ -27,9 +27,12 @@ calcWinProbability winProb winMoney initialMoney numRounds = (dp ! numRounds) ! 
         initialQuantum =  floor iqd
         -- initialQuantum = trace ("initialQuantum: " ++ show initialQuantum') initialQuantum'
 
-        initDp = array (0,numRounds) [ (i, array (0, numBidPattern-1) [
-                (j, if ((i == 0) && (j == numBidPattern-1)) then 1.0 else 0.0) | j <- [0..numBidPattern-1]
-            ]) | i <- [0..numRounds]]
+        -- initDp = array (0,numRounds) [ (i, array (0, numBidPattern-1) [
+        --         (j, if ((i == 0) && (j == numBidPattern-1)) then 1.0 else 0.0) | j <- [0..numBidPattern-1]
+        --     ]) | i <- [0..numRounds]]
+
+        initDp = array (0, numRounds) [ (i, roundProbs i) | i <- [0..numRounds]]
+            where roundProbs i = array (0, numBidPattern-1) [(j, if i==0 && j == numBidPattern-1 then 1.0 else 0.0) | j <- [0..numBidPattern-1]]
         dp = calcDp winProb numBidPattern initDp [1..numRounds] [0..(numBidPattern-1)]
         -- dp = trace ("dp: " ++ show dp') dp'
 
@@ -59,6 +62,6 @@ calcBid winProb numBidPattern curRound acc bid = newDp
         prevRoundPs :: RoundProb
         prevRoundPs = acc ! prevRound
         bidProbs = [(prevRoundPs ! (bid-i)) * (1-winProb) + (prevRoundPs ! (bid+i)) * winProb| i <- [0..maxBid]]
-        maxBid = minimum [bid, numBidPattern - 1- bid]
+            where maxBid = minimum [bid, numBidPattern - 1- bid]
         -- maxBid = trace ("maxBid: " ++ show maxBid') maxBid'
 
