@@ -13,6 +13,7 @@
 #include "road_blocks.hpp"
 #include "layout.hpp"
 #include "bribe_the_prisoners.hpp"
+#include "millionair.hpp"
 
 using namespace std;
 using namespace graph;
@@ -164,8 +165,9 @@ void SolveCrazyRows() {
 	cout << res << endl;
 }
 
-int main() {
-	cout << "Cost: " << CalcMinCost(20, { 3, 6, 14 }) << endl;
 
+int main() {
+	MillionairSolver solver(3, 1'000'000, 0.75);
+	cout << "Probability: " << solver.CalcProbability(600000) << endl;;
 	return 0;
 }

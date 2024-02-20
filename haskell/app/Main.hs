@@ -10,7 +10,8 @@ module Main (main) where
 -- import Conscription
 -- import Layout
 -- import CrazyRow
-import BribePrisoners
+-- import BribePrisoners
+import Millionaire
 
 main :: IO ()
 main = do 
@@ -27,6 +28,7 @@ main = do
     -- print $ orgCost + reduction
     -- print (show $ calcLongestLayout 4 [(0, 2, 10), (1, 3, 20)] [(1, 2, 3)] )
     -- print $ calcMinimumSteps CrazyRow.testData
-    print $ calcMinBribe 20 [3, 6, 14]
+    -- print $ calcMinBribe 20 [3, 6, 14]
+    print $ calcWinProbability 0.75 1_000_000 600_000 3
     return ()
 

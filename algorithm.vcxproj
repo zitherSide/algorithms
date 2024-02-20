@@ -137,6 +137,7 @@
     <ClCompile Include="kruskal.cpp" />
     <ClCompile Include="layout.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="millionair.cpp" />
     <ClCompile Include="prim.cpp" />
     <ClCompile Include="road_blocks.cpp" />
     <ClCompile Include="union_find.cpp" />
@@ -149,6 +150,7 @@
     <ClInclude Include="graph.hpp" />
     <ClInclude Include="kruskal.hpp" />
     <ClInclude Include="layout.hpp" />
+    <ClInclude Include="millionair.hpp" />
     <ClInclude Include="prim.hpp" />
     <ClInclude Include="road_blocks.hpp" />
     <ClInclude Include="union_find.hpp" />
